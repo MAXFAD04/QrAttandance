@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Backend: отладка",
+            "program": "${workspaceFolder}/back/src/server.js",
+            "cwd": "${workspaceFolder}/back",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Backend: nodemon + отладка",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceFolder}/back/src/server.js",
+            "cwd": "${workspaceFolder}/back",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Frontend: npm run dev",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"],
+            "cwd": "${workspaceFolder}/front",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Полный стек: backend + frontend",
+            "configurations": [
+                "Backend: отладка",
+                "Frontend: npm run dev"
+            ],
+            "stopAll": true
+        }
+    ]
+}
